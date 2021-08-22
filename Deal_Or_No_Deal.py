@@ -12,6 +12,22 @@ def user_name():
     print ("Hello {}, welcome to Deal or No Deal; Here's how to play:.....".format(user_name))
     print ()
     
+def safe_case(case):
+    while True:
+        try:
+            stored_case = []
+            safe_case_choice = int(input("Please enter a number from 1 to 26: "))
+            if len(stored_case) <= 1:
+                if 1 <= safe_case_choice <= 26:
+                    stored_case.append(safe_case_choice)
+                    case.remove(safe_case_choice)
+                    break
+                else:
+                    print ()
+                    print ("Invalid, please enter a number from 1 to 26")
+        except ValueError:
+            print ("Please enter an int")    
+    
 if __name__ == "__main__":
 
     user_name()
