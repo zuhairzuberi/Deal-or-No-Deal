@@ -91,6 +91,54 @@ def case_cash():
             break
         else:
             print ("Sorry, please type in either Y or N")
+
+def Deal_or_NoDeal(cash, case, banker_offers):
+    global banker
+    banker = round(sum(cash) / (len(case) + 1))
+    print ()
+    print ("-" * 91)
+    print ("Here is the banker's offer: $" + str(banker))
+    banker_offers.append(banker)
+    if len(banker_offers) > 1:
+        print ()
+        print ("Here are all of the banker's offers thus far:")
+        print ()
+        for offers in banker_offers:
+            print ("$" + str(offers))
+    print ()
+    print ("Here's a list of all cash sums left:")
+    print (cash)
+    print ()
+    if len(case) > 1:
+        print ("And here is a list of all cases left:")
+        print (case)
+    print ()
+    global Deal_or_noDeal
+    Deal_or_noDeal = input("To accept the banker's offer, please type in \"D\" otherwise type anything else to decline: ")
+    print ("-" * 91)
+    if Deal_or_noDeal == "D" or Deal_or_noDeal == "d":
+        print ()
+        print ("Congrats {}, you have won ${}".format(user_name,banker))
+        
+def final_choice(case, cash):
+    print ()
+    print ("Would you like to keep or switch your final case")
+    final_choice = input("Type in either \'Keep\' or anything else to Swap: ")
+    if final_choice == "Keep":
+        cash.remove(choice(cash))
+        if choice(cash) > banker:
+            print ("Congrats, you won: $" + (str(choice(cash))))
+            case_cash()
+        else:
+            print ("Nice try, you won: $" + (str(choice(cash))))
+            case_cash()
+    else:
+        if choice(cash) > banker:
+            print ("Congrats, you won: $" + (str(choice(cash))))
+            case_cash()
+        else:
+            print ("Nice try, you won: $" + (str(choice(cash))))
+            case_cash()
         
 if __name__ == "__main__":
 
