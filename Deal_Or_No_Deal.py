@@ -76,7 +76,22 @@ def user_turns(case, cash):
                 print ("Please input a proper case")
         except ValueError:
             print ("Please enter an int ")
-            
+           
+def case_cash():
+    while True:
+        print ()
+        case_cash = input("Would you like to view what each case held?(Y/N): ")
+        if case_cash == "Y" or case_cash == "y":
+            print (chosen_case)
+            print ()
+            print ("Goodbye, and thank you for playing Deal or No Deal")
+            break
+        elif case_cash == "N" or case_cash == "n":
+            print ("Goodbye, and thank you for playing Deal or No Deal")
+            break
+        else:
+            print ("Sorry, please type in either Y or N")
+        
 if __name__ == "__main__":
 
     user_name()
